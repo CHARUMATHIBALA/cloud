@@ -1,0 +1,90 @@
+Step-by-Step: Create a Web Application using Elastic Beanstalk
+
+You will use AWS Elastic Beanstalk, which automatically provisions Amazon EC2, load balancing, and scaling.
+
+1️⃣ Login to AWS Console
+Open AWS console
+Sign in to your account
+In the search bar type Elastic Beanstalk
+Click AWS Elastic Beanstalk
+2️⃣ Create New Application
+Click Create Application
+
+Fill the details:
+
+Application Name
+
+my-web-app
+
+Platform
+
+Choose one:
+
+Python
+Node.js
+Java
+PHP
+
+Example:
+
+Python 3.11
+3️⃣ Upload Application Code
+
+Create a simple file:
+
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Elastic Beanstalk App</title>
+</head>
+
+<body>
+<h1>Hello from AWS Elastic Beanstalk</h1>
+<p>This web app is running on EC2 instance.</p>
+</body>
+
+</html>
+
+Zip the file:
+
+webapp.zip
+
+Upload this ZIP file in Application Code.
+
+4️⃣ Configure Environment
+
+Environment type:
+
+Web server environment
+
+Instance type:
+
+t2.micro
+
+This instance will be created automatically in Amazon EC2.
+
+5️⃣ Create Environment
+
+Click:
+
+Create environment
+
+AWS will automatically create:
+
+EC2 Instance
+Load Balancer
+Security Groups
+Auto Scaling
+
+Deployment takes 3–5 minutes.
+
+6️⃣ Access the Web Application
+
+After deployment you will get a URL like:
+
+http://mywebapp-env.eba-xxxxx.ap-south-1.elasticbeanstalk.com
+
+Open it in the browser.
+
+✅ Your web application is now running on EC2 through Elastic Beanstalk.–

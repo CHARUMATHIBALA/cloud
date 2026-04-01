@@ -1,0 +1,116 @@
+Start the Virtual Machine
+Open Oracle VM VirtualBox.
+Select the VM you created (for example Ubuntu or another Linux VM).
+Click Start.
+Log in to the Linux system.
+2️⃣ Open Terminal
+
+In Linux:
+
+Press Ctrl + Alt + T, or
+Go to Applications → Terminal
+
+Terminal will open for running commands.
+
+3️⃣ Install C Compiler (GCC)
+
+Most Linux systems use the GNU Compiler Collection (GCC) for compiling C programs.
+
+Update package list
+sudo apt update
+Install GCC
+sudo apt install build-essential
+
+This installs:
+
+GCC compiler
+G++ compiler
+Libraries
+Development tools
+4️⃣ Verify Installation
+
+Check whether the compiler is installed.
+
+gcc --version
+
+You should see GCC version details.
+
+Example:
+
+gcc (Ubuntu 11.4.0) 11.4.0
+5️⃣ Create a Simple C Program
+
+Create a file called hello.c
+
+nano hello.c
+
+Write the following code:
+
+#include <stdio.h>
+
+int main() {
+    printf("Hello World\n");
+    return 0;
+}
+
+Save the file:
+
+Press
+Ctrl + X → Y → Enter
+
+6️⃣ Compile the Program
+
+Use the gcc compiler:
+
+gcc hello.c -o hello
+
+Explanation:
+
+hello.c → source file
+-o hello → output executable file
+7️⃣ Run the Program
+
+Execute the compiled program:
+
+./hello
+
+Output:
+
+Hello World
+8️⃣ Example Program (Addition)
+
+Create another file:
+
+nano add.c
+
+Program:
+
+#include <stdio.h>
+
+int main() {
+    int a,b,sum;
+    printf("Enter two numbers: ");
+    scanf("%d %d",&a,&b);
+    sum = a + b;
+    printf("Sum = %d",sum);
+    return 0;
+}
+
+Compile:
+
+gcc add.c -o add
+
+Run:
+
+./add
+
+Example output:
+
+Enter two numbers: 5 7
+Sum = 12
+9️⃣ Summary of Commands
+Command	Purpose
+sudo apt update	update package list
+sudo apt install build-essential	install GCC compiler
+gcc program.c -o program	compile C program
+./program	run compiled program

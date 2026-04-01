@@ -1,0 +1,121 @@
+aunch an EC2 Instance
+
+First, create a base server that will be used to build your scaling template.
+
+Go to Amazon EC2
+Launch an instance with:
+AMI (e.g., Amazon Linux)
+Instance type
+Security group (allow HTTP/HTTPS)
+Key pair
+Install and configure your application or web server.
+2️⃣ Create an AMI (Machine Image)
+
+After configuring the instance:
+
+Select the instance
+Click Create Image
+
+This produces an Amazon Machine Image (AMI) so new instances can be launched automatically with the same configuration.
+
+3️⃣ Create a Launch Template
+
+Next, define how new instances will be launched.
+
+Go to Launch Templates and configure:
+
+AMI ID
+Instance type
+Security groups
+Key pair
+User data (optional startup scripts)
+
+This template is used by AWS Auto Scaling to create instances.
+
+4️⃣ Create a Target Group
+
+A target group defines which instances will receive traffic.
+
+In Elastic Load Balancing:
+
+Create Target Group
+Choose target type: Instances
+Configure:
+Protocol (HTTP/HTTPS)
+Port
+Health check path (e.g., /)
+
+Health checks ensure only healthy instances receive traffic.
+
+5️⃣ Create a Load Balancer
+
+Create an Application Load Balancer (ALB).
+
+Steps:
+
+Choose internet-facing or internal
+Select VPC and subnets
+Attach the Target Group
+Configure listeners (HTTP/HTTPS)
+
+The load balancer distributes incoming requests across instances.
+
+6️⃣ Create an Auto Scaling Group
+
+Now configure automatic scaling.
+
+In AWS Auto Scaling:
+
+Choose the Launch Template
+Attach the Target Group
+Select VPC and subnets
+Configure capacity:
+Minimum instances
+Desired instances
+Maximum instances
+
+Example:
+
+Min = 2
+Desired = 2
+Max = 6
+7️⃣ Configure Scaling Policies
+
+Define when to add or remove instances.
+
+Common options:
+
+Target tracking scaling
+Step scaling
+Scheduled scaling
+
+Example rule:
+
+If CPU > 70% → add instance
+If CPU < 30% → remove instance
+
+Uses Amazon CloudWatch metrics.
+
+8️⃣ Configure Health Checks
+
+Auto Scaling continuously checks instance health.
+
+Health checks come from:
+
+EC2 status checks
+Load Balancer health checks
+
+If an instance fails → it is automatically replaced.
+
+9️⃣ Test the Setup
+
+Finally:
+
+Access the Load Balancer DNS
+Simulate traffic (load testing)
+Monitor scaling events in Amazon CloudWatch
+
+You should see:
+
+New instances launched during high traffic
+Instances terminated when traffic drops
