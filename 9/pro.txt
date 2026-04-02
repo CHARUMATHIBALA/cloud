@@ -1,0 +1,18 @@
+Procedure
+Step 1 – Install Software
+Install Arduino IDE.
+Install ESP8266 board package in Arduino IDE.
+Install libraries:
+Blynk
+DHT sensor library.
+
+p 2 – Setup Blynk App
+Install Blynk IoT from Play Store/App Store.
+Create an account.
+Create a New Template / Project.
+Select device:
+ESP8266
+Add Widgets:
+Temperature Gauge
+Humidity Gauge.
+Note the Auth Token sent to email.
